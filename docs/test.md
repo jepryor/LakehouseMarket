@@ -10,7 +10,7 @@
   const ctx = document.getElementById('myChart');
   const chartData = {{ site.data.sampleData | jsonify}};
 
-  ew Chart(ctx, {
+  new Chart(ctx, {
     type: 'bar',
     data: {
       labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
