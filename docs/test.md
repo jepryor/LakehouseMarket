@@ -8,7 +8,7 @@
 
 <script>
   const ctx = document.getElementById('myChart');
-  const chartData = {{ site.data.sample_data | jsonify}};
+  const chartData = {{ site.data.sampleData | jsonify}};
 
   new Chart(ctx, {
     type: 'bar',
@@ -22,3 +22,4 @@
     }
   });
 </script>
+{{ site.data.sampleData | jsonify}};
