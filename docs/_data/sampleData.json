@@ -1,1 +1,14 @@
-[12, 19, 3, 5, 2, 3]
+[
+  {
+    "SnapshotDay": "2026-02-01",
+    "Inventory": 12
+  },
+  {
+    "SnapshotDay": "2026-02-02",
+    "Inventory": 15
+  },
+  {
+    "SnapshotDay": "2026-02-03",
+    "Inventory": 9
+  }
+]
