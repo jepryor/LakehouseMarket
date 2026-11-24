@@ -11,12 +11,12 @@
   const chartData = {{ site.data.sampleData | jsonify}};
 
   new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: chartData.map(x => x.SnapshotDay),
       datasets: [{
-        label: '# of Votes',
-        data: chartData,
+        label: 'Available Apartments',
+        data: chartData.map(x => x.Inventory),
         borderWidth: 1
       }]
     },
