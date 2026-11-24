@@ -10,9 +10,16 @@
   const ctx = document.getElementById('myChart');
   const chartData = {{ site.data.sampleData | jsonify}};
 
-  new Chart(ctx, {
+  ew Chart(ctx, {
     type: 'bar',
-    data: chartData,
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: chartData,
+        borderWidth: 1
+      }]
+    },
     options: {
       scales: {
         y: {
