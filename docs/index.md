@@ -9,3 +9,5 @@ Lakehouse is currently advertising **{{ site.data.rent.TotalListings }}** apartm
 | One Bedroom + Den   | {{ site.data.rent.1brDenCount }}   | ${{ site.data.rent.AvgRent_1BRDen }}   |
 | Two Bedroom   | {{ site.data.rent.2brCount }}   | ${{ site.data.rent.AvgRent_2BR }}   |
 | Three Bedroom   | {{ site.data.rent.3brCount }}   | ${{ site.data.rent.AvgRent_3BR }}  |
+
+Site content generated on {{ site.time }}.
