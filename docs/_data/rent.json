@@ -1,0 +1,17 @@
+{
+  "AvgRent_0BR": "NaN",
+  "AvgRent_1BR": 2710,
+  "AvgRent_1BRDen": 3138,
+  "AvgRent_2BR": "NaN",
+  "AvgRent_3BR": "NaN",
+  "StudioCount": 0,
+  "1brCount": 8,
+  "1brDenCount": 2,
+  "2brCount": 0,
+  "3brCount": 0,
+  "TotalListings": 10,
+  "AvailableNow": 9,
+  "pctListed": 6.3,
+  "pctVacant": 5.6,
+  "dataAsOf": "2026-11-10T02:17:11.2357929Z"
+}
