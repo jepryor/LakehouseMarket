@@ -1,4 +1,4 @@
-# Lakehouse Market Data
+# Today's Summary
 
 Lakehouse is currently advertising **{{ site.data.rent.TotalListings }}** apartments with **{{ site.data.rent.AvailableNow }}** available for immediate occupancy. The vacancy rate is {{ site.data.rent.pctVacant }}%.
 
