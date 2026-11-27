@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gruyère Bacon Scalloped Potatoes</title>
+<style>
+body{
+    font-family: Segoe UI, Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #1b1b1b;
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+h1{color:#f7d774;}
+h2{
+    background:#333;
+    padding:10px;
+    border-radius:8px;
+}
+.card{
+    background:#262626;
+    padding:16px;
+    border-radius:12px;
+    margin-bottom:16px;
+}
+label{
+    display:block;
+    margin:8px 0;
+    font-size:1.1rem;
+}
+input[type=checkbox]{
+    transform:scale(1.4);
+    margin-right:10px;
+}
+button{
+    padding:12px 18px;
+    font-size:1rem;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+.awake{
+    background:#0a7d32;
+    color:white;
+}
+.off{
+    background:#666;
+    color:white;
+}
+.step{
+    margin-bottom:18px;
+    padding:12px;
+    background:#2f2f2f;
+    border-radius:8px;
+}
+.status{
+    margin-top:10px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<h1>🥔 Gruyère Bacon Scalloped Potatoes</h1>
+<p><strong>Magnifique 4‑Quart Slow Cooker Edition</strong></p>
+
+<button id="wakeBtn" class="off">Keep Screen Awake: OFF</button>
+<div id="status" class="status"></div>
+
+<div class="card">
+<h2>Ingredients</h2>
+<label><input type="checkbox">3 lb Yukon Gold potatoes, sliced 1/8"</label>
+<label><input type="checkbox">8 oz thick-cut bacon, diced</label>
+<label><input type="checkbox">3 Tbsp butter</label>
+<label><input type="checkbox">2 Tbsp flour</label>
+<label><input type="checkbox">1½ cups heavy cream</label>
+<label><input type="checkbox">¾ cup chicken broth</label>
+<label><input type="checkbox">2 cloves garlic, minced</label>
+<label><input type="checkbox">1 tsp Dijon mustard</label>
+<label><input type="checkbox">¼ tsp nutmeg (optional)</label>
+<label><input type="checkbox">1½ tsp kosher salt</label>
+<label><input type="checkbox">½ tsp black pepper</label>
+<label><input type="checkbox">1½ Tbsp fresh thyme</label>
+<label><input type="checkbox">2 Tbsp fresh parsley</label>
+<label><input type="checkbox">8 oz Gruyère</label>
+<label><input type="checkbox">4 oz sharp white cheddar</label>
+<label><input type="checkbox">2 oz Parmesan</label>
+</div>
+
+<div class="card">
+<h2>Cook Mode</h2>
+
+<div class="step">
+<strong>1. Prep</strong><br>
+Grease the slow cooker lightly with butter. Combine Gruyère and cheddar, reserving about 1 cup for the top layer.
+</div>
+
+<div class="step">
+<strong>2. Cook Bacon</strong><br>
+Cook bacon until crisp. Reserve 1 Tbsp bacon fat. Save half the bacon for finishing.
+</div>
+
+<div class="step">
+<strong>3. Make Sauce</strong><br>
+Add butter to bacon fat. Whisk in flour and cook 1 minute. Slowly whisk in cream and broth. Add garlic and cook until slightly thickened. Stir in Parmesan, Dijon, nutmeg, thyme, salt, and pepper.
+</div>
+
+<div class="step">
+<strong>4. Layer</strong><br>
+Layer potatoes, sauce, cheese, and bacon in three layers. Finish with reserved cheese on top.
+</div>
+
+<div class="step">
+<strong>5. Slow Cook</strong><br>
+Cook on LOW for 4½–6 hours. Check tenderness beginning at 4½ hours.
+</div>
+
+<div class="step">
+<strong>6. Finish</strong><br>
+Top with reserved bacon and parsley. Rest 10–15 minutes before serving.
+</div>
+
+</div>
+
+<div class="card">
+<h2>Grocery List</h2>
+<label><input type="checkbox">Yukon Gold potatoes</label>
+<label><input type="checkbox">Garlic</label>
+<label><input type="checkbox">Fresh thyme</label>
+<label><input type="checkbox">Fresh parsley</label>
+<label><input type="checkbox">Heavy cream</label>
+<label><input type="checkbox">Gruyère</label>
+<label><input type="checkbox">Sharp white cheddar</label>
+<label><input type="checkbox">Parmesan</label>
+<label><input type="checkbox">Butter</label>
+<label><input type="checkbox">Bacon</label>
+<label><input type="checkbox">Chicken broth</label>
+<label><input type="checkbox">Dijon mustard</label>
+<label><input type="checkbox">Flour</label>
+<label><input type="checkbox">Kosher salt</label>
+<label><input type="checkbox">Black pepper</label>
+<label><input type="checkbox">Nutmeg (optional)</label>
+</div>
+
+<script>
+let wakeLock = null;
+const btn = document.getElementById('wakeBtn');
+const status = document.getElementById('status');
+
+async function toggleWakeLock() {
+    try {
+        if (!wakeLock) {
+            wakeLock = await navigator.wakeLock.request('screen');
+            btn.textContent = 'Keep Screen Awake: ON';
+            btn.className = 'awake';
+            status.textContent = 'Screen sleep prevention enabled.';
+            wakeLock.addEventListener('release', () => {
+                wakeLock = null;
+                btn.textContent = 'Keep Screen Awake: OFF';
+                btn.className = 'off';
+            });
+        } else {
+            await wakeLock.release();
+        }
+    } catch (err) {
+        status.textContent =
+            'Wake Lock not supported or requires HTTPS/browser support.';
+    }
+}
+
+btn.addEventListener('click', toggleWakeLock);
+</script>
+
+</body>
+</html>
